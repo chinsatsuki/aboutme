@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,11 @@ import { ToolUtils } from "@/lib/utils/toolUtils";
 
 export default function Home() {
   const [name, setName] = useLocalStorage<string>("name", "");
+  const [randomId, setRandomId] = useState<string>("");
+
+  useEffect(() => {
+    setRandomId(ToolUtils.generateId());
+  }, []);
 
   return (
     <div className="p-4 space-y-4">
