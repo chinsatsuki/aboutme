@@ -1,46 +1,68 @@
 "use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import styles from "@/components/hero/Hero.module.css";
+import { Disk } from "@/components/hero/Disk";
+import { DetailsContent } from "@/components/hero/DetailsContent";
+import { CoverImage } from "@/components/hero/CoverImage";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useLocalStorage } from "@/lib/hooks/useLocalStorage";
-import { ToolUtils } from "@/lib/utils/toolUtils";
-
-export default function Home() {
-  const [name, setName] = useLocalStorage<string>("name", "");
-  const [randomId, setRandomId] = useState<string>("");
-
-  useEffect(() => {
-    setRandomId(ToolUtils.generateId());
-  }, []);
+export default function HeroSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="p-4 space-y-4">
-      <Card>
-        <CardContent className="space-y-2">
-          <h1 className="text-xl font-bold">Welcome to Minimal Template</h1>
+    <div
+      className="flex min-h-screen items-center justify-center bg-cover bg-center overflow-hidden"
+      style={{ backgroundImage: "url('/images/background.jpg')" }}
+    >
+      <motion.div
+        className={styles.mainWrapper}
+        onMouseEnter={() => setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
+      >
+        {/* 1. 唱片底层 */}
+<motion.div
+          className={styles.diskWrapper}
+          initial={{ left: "-35%" }}
+          animate={{
+            left: isExpanded ? "-10%" : "-35%"
+          }}
+          transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <Disk />
+        </motion.div>
 
-          <Input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter name"
-          />
+{/* 2. 左侧绿色板块 (书脊) */}
+<div className={styles.greenSection}>
+  {/* 新增：动态渐隐的名字 */}
+  <motion.div
+    initial={{ opacity: 1 }}
+    animate={{ opacity: isExpanded ? 0 : 1 }}
+transition={{ duration: 0.4, ease: "easeInOut" }}
+    className={styles.heroName}
+  >
+    CHIN<br />SATSUKI
+  </motion.div>
+</div>
 
-          <Button onClick={() => alert(`Hello, ${name}!`)}>Greet</Button>
-        </CardContent>
-      </Card>
+        {/* 3. 中间详情页 (材质背景) */}
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: isExpanded ? "var(--base-height)" : 0 }}
+          transition={{ duration: 0.7, ease: [0.4, 0, 0.1, 1] }}
+          className={`${styles.textureBase} overflow-hidden`}
+        >
+          {/* 这里必须包裹一层固定宽度的容器，防止内容在宽度变小时被挤压裁剪 */}
+          <div style={{ width: "var(--base-height)", height: "100%" }}>
+            <DetailsContent />
+          </div>
+        </motion.div>
 
-      <Card>
-        <CardContent>
-          <p>Random Tool Value: {ToolUtils.generateId()}</p>
-        </CardContent>
-      </Card>
-
-      <Link className="underline" href="/components">
-        View all components
-      </Link>
+        {/* 4. 右侧封面 (材质背景) */}
+        <div className={`${styles.textureBase} aspect-square flex items-center justify-center`}>
+          <div className={styles.bookFold} />
+          <CoverImage />
+        </div>
+      </motion.div>
     </div>
   );
 }

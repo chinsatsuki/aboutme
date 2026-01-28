@@ -1,0 +1,91 @@
+/* Hero.module.css */
+
+/* 书脊折痕阴影：区分展开后的中间页 */
+.bookFold {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+  z-index: 40;
+  pointer-events: none;
+}
+
+
+.mainWrapper {
+  --base-height: 60vh;
+  height: var(--base-height);
+  display: flex;
+  /* 关键：强制所有子元素高度填满父容器，解决 1320px 以下的不对齐 */
+  align-items: stretch;
+  position: relative;
+  justify-content: center;
+  margin-left: 20%; /* 你可以根据视觉感受调整这个百分比，比如 15% 或 200px */
+  /* 确保整体在右移后不会溢出屏幕 */
+  max-width: 90vw;
+}
+
+.greenSection {
+  height: 100%;
+  width: calc(var(--base-height) * 0.35);
+  background-image: url('/images/aboutme.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 30;
+  flex-shrink: 0;
+  position: relative; /* 💡 必须加这一行，让文字相对于它定位 */
+  display: flex;
+  align-items: center; /* 💡 让内容垂直居中 */
+}
+
+.textureBase {
+  height: 100%;
+  background-image: url('/images/bg-texture.png');
+  background-size: cover;
+  z-index: 20;
+  position: relative;
+  flex-shrink: 0; /* 禁止被挤压 */
+}
+
+.diskWrapper {
+  position: absolute;
+  /* 唱片高度随父容器自动缩放 */
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  z-index: 1;
+  display: flex;
+  align-items: center; /* 确保圆盘垂直居中 */
+}
+
+/* Hero.module.css */
+.heroName {
+  position: absolute;
+  left: -195%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 4.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  pointer-events: none; /* 💡 确保文字不会干扰鼠标 hover 事件 */
+  z-index: 50;
+  text-transform: uppercase;
+}
+
+/* 如果你想要那种空心字或者发光效果，可以在这里加 */
+.heroName span {
+  display: block;
+}
+
+.hover-green-text {
+  color: #000000;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-green-text:hover {
+  color: var(--brand-green);
+}
