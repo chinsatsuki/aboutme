@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  
+
   /* Shadcn UI tokens */
   --card: #ffffff;
   --card-foreground: #171717;
@@ -30,7 +30,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
+
   /* Map CSS variables to Tailwind colors */
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);

@@ -17,12 +17,9 @@
   --base-height: 60vh;
   height: var(--base-height);
   display: flex;
-  /* 关键：强制所有子元素高度填满父容器，解决 1320px 以下的不对齐 */
   align-items: stretch;
   position: relative;
   justify-content: center;
-  margin-left: 20%; /* 你可以根据视觉感受调整这个百分比，比如 15% 或 200px */
-  /* 确保整体在右移后不会溢出屏幕 */
   max-width: 90vw;
 }
 
@@ -43,6 +40,16 @@
   height: 100%;
   background-image: url('/images/bg-texture.png');
   background-size: cover;
+  z-index: 20;
+  position: relative;
+  flex-shrink: 0; /* 禁止被挤压 */
+}
+
+.textureBase1 {
+  height: 100%;
+  background-image: url('/images/bg-texture1.png');
+  background-size: cover;
+  background-position: right top;
   z-index: 20;
   position: relative;
   flex-shrink: 0; /* 禁止被挤压 */
@@ -88,4 +95,19 @@
 
 .hover-green-text:hover {
   color: var(--brand-green);
+}
+
+.greenSection {
+  height: 100%;
+  width: calc(var(--base-height) * 0.35);
+  background-image: url('/images/aboutme.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 30;
+  flex-shrink: 0;
+  position: relative; /* 必须加，用于绝对定位标题 */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
