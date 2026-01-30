@@ -69,9 +69,16 @@ transition={{ duration: 0.4, ease: "easeInOut" }}
 
         {/* 3. 中间详情页 (材质背景) */}
         <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: isExpanded ? "var(--base-height)" : 0 }}
-          transition={{ duration: 0.7, ease: [0.4, 0, 0.1, 1] }}
+          initial={{ width: 0, opacity: 0}}
+          animate={{
+    width: isExpanded ? "var(--base-height)" : 0,
+    opacity: isExpanded ? 1 : 0
+  }}
+  transition={{
+    duration: 0.7,
+    ease: [0.4, 0, 0.1, 1],
+    opacity: { duration: isExpanded ? 0.4 : 0.3 }
+  }}
           className={`${styles.textureBase1} overflow-hidden`}
         >
           {/* 这里必须包裹一层固定宽度的容器，防止内容在宽度变小时被挤压裁剪 */}

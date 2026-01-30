@@ -1,18 +1,32 @@
+// types/case.ts
+
 export interface DesignStep {
   number: string;
   title: string;
-  description: string;
-  image: string;
+  jpTitle: string;
+  subTitle?: string;
+  points: string[];
+  description: React.ReactNode;
+  image: React.ReactNode;
+  titleEn?: string;
+  extraContent?: React.ReactNode;
 }
 
 export interface CaseData {
   title: string;
-  themeColor: string; // 例如: "#5D5FEF" (紫色) 或 "#00A3FF" (蓝色)
+  themeColor: string;
+  titleEn: string;
+  subtitleEn?: string;
   firstViewImage: string;
+  prototypeUrl?: string;
+  heroElement?: React.ReactNode;
   analysis: {
     product: string;
     problem: string;
     goal: string;
+    role: string;
+    timeline: string;   // 确保这里没有 ?，解决 image_9c9ca0.png 的 "timeline" 不存在报错
+    tools: string;
   };
   steps: DesignStep[];
   learning: string;

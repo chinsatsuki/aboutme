@@ -7,7 +7,7 @@
   top: 0;
   width: 15px;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+  background: linear-gradient(to right, rgba(0,0,0,0.02), transparent);
   z-index: 40;
   pointer-events: none;
 }
@@ -23,18 +23,6 @@
   max-width: 90vw;
 }
 
-.greenSection {
-  height: 100%;
-  width: calc(var(--base-height) * 0.35);
-  background-image: url('/images/aboutme.png');
-  background-size: cover;
-  background-position: center;
-  z-index: 30;
-  flex-shrink: 0;
-  position: relative; /* 💡 必须加这一行，让文字相对于它定位 */
-  display: flex;
-  align-items: center; /* 💡 让内容垂直居中 */
-}
 
 .textureBase {
   height: 100%;
@@ -82,7 +70,7 @@
   text-transform: uppercase;
 }
 
-/* 如果你想要那种空心字或者发光效果，可以在这里加 */
+
 .heroName span {
   display: block;
 }
