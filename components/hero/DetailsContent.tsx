@@ -18,19 +18,19 @@ export const DetailsContent = () => {
       items: [
         { name: "1. WASHOKU(レストラン予約ミニプログラム)", id: "washoku" },
         { name: "2. LGBT組織アプリ", id: "lgbt" },
-        { name: "3. 工場ウェブサイト", id: "factory" },
-        { name: "4. 水族館アプリ", id: "marine-world" } // 💡 这里对应 [id] 路由
+        { name: "3. 工場ウェブサイト", id: "sunhope" },
+        { name: "4. 水族館アプリ", id: "marineworld" } // 💡 这里对应 [id] 路由
       ]
     },
     {
       side: "SIDE C",
       title: "Other Design Works",
       items: [
-        { name: "1. クラウドファンディングデザイン", id: "cloud-funding" },
+        { name: "1. クラウドファンディングデザイン", id: "crowdfunding" },
         { name: "2. ブックデザイン", id: "book" },
         { name: "3. 会社パンフレット", id: "pamphlet" },
-        { name: "4. グラフィックデザイン", id: "graphic" },
-        { name: "5. PROJECT HEI", id: "project-hei" }
+        { name: "4. コミュニケーションデザイン", id: "communication" },
+        { name: "5. PROJECT HEI", id: "projecthei" }
       ]
     },
   ];
@@ -51,8 +51,8 @@ export const DetailsContent = () => {
                 {sec.items.map((item, i) => (
                   <li key={i}>
                     {/* 2. 使用 Link 组件包裹，将原本的文字变成可跳转的链接 */}
-                    <Link 
-                      href={`/cases/${item.id}`} 
+                    <Link
+                      href={`/cases/${item.id}`}
                       className="text-[var(--secondary)] hover:text-[var(--brand-orange)] transition-colors duration-300 cursor-pointer text-[13px] font-medium leading-tight block"
                     >
                       {item.name}

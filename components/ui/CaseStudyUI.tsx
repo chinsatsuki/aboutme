@@ -8,11 +8,16 @@ export const SectionHeading = ({ en, jp }: { en: string; jp: string }) => (
 );
 
 // 2. 正文段落组件：确保所有板块文字样式一致
-export const SectionDescription = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-[16px] leading-[1.8] font-medium text-black/80">
+export const SectionDescription = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
+  <div className="text-[16px] leading-[1.8] font-medium text-black/80">
     {children}
-  </p>
+  </div>
 );
+
 
 // 3. 详情项组件：WHAT is, MY ROLE 等专用
 export const DetailItem = ({ title, jp, color, content }: { title: string; jp: string; color: string; content: string }) => (

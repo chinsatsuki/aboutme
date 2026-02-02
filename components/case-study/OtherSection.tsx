@@ -1,0 +1,66 @@
+// components/case-study/OtherSection.tsx
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { CaseData } from "@/types/case";
+
+// 这里的 ALL_CASES_LIST 建议放在单独的常量文件，这里仅作演示
+const ALL_CASES_LIST = [
+  { id: 'b01', group: 'b', title: 'WASHOKU', image: '/images/casecover/washoku.jpg', link: '/case/washoku' },
+  { id: 'b02', group: 'b', title: 'LGBT ORGANIZATION', image: '/images/casecover/lgbt.jpg', link: '/case/lgbt' },
+  { id: 'b03', group: 'b', title: 'FACTORY WEBSITE', image: '/images/casecover/website.jpg', link: '/case/sunhope' },
+  { id: 'b04', group: 'b', title: 'THE AQUARIUM APP', image: '/images/casecover/marineworld.jpg', link: '/case/marineworld' },
+  // ... 其他组 A 和 C 的数据
+];
+
+export default function OtherSection({ currentId, group, themeColor }: {
+  currentId: string,
+  group: string,
+  themeColor: string
+}) {
+  // 核心状态：记录整个区域是否被 hover
+  const [isSectionHovered, setIsSectionHovered] = useState(false);
+
+  // 过滤推荐案例
+  const recommended = ALL_CASES_LIST
+    .filter(item => item.group === group && item.id !== currentId)
+    .slice(0, 3);
+
+  if (recommended.length === 0) return null;
+
+  return (
+    <section className="py-32 px-[75px]" style={{ backgroundColor: themeColor }}>
+      <div className="max-w-7xl mx-auto">
+        <h3 className="text-white/60 text-[14px] font-bold tracking-[0.2em] mb-16 uppercase">
+          OTHER RELATED CASES
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+          {recommended.map((item) => (
+            /* 每个 Link 都是一个独立的 group */
+            <Link href={item.link} key={item.id} className="group relative block">
+              <div className="relative aspect-square">
+
+                {/* 1. 下层：黑胶 (独立响应 hover) */}
+                <div className="absolute inset-0 z-0 transition-transform duration-700 ease-in-out translate-x-0 group-hover:translate-x-[20%]">
+                  <img src="/images/record-disk.png" className="w-full h-full object-contain" alt="" />
+                </div>
+
+                {/* 2. 上层：封面外壳 (Padding 50 + 白色背景) */}
+                <div className="absolute inset-0 z-10 p-[50px] bg-white transition-all duration-500 shadow-lg group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center justify-center">
+                  <div className="w-full h-full shadow-inner border border-black/5 overflow-hidden">
+                    <img src={item.image} className="w-full h-full object-cover" alt={item.title} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 text-white">
+                <p className="text-[12px] font-bold opacity-60 mb-1">{item.id.toUpperCase()}</p>
+                <h4 className="text-[20px] font-black italic uppercase leading-none">{item.title}</h4>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

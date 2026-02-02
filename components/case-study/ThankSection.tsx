@@ -1,36 +1,55 @@
-import Link from "next/link";
+// components/case-study/ThankSection.tsx
 import { CaseData } from "@/types/case";
 
 export default function ThankSection({ data }: { data: CaseData }) {
-  const { themeColor, firstViewImage, learning, relatedCases } = data;
+  const { themeColor } = data;
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative">
-      <div className="relative text-center mb-20" style={{ padding: "90px 75px" }}>
-        <div className="max-w-3xl mx-auto">
-          <h4 className="text-xl font-bold mb-8 italic" style={{ color: themeColor }}>WHAT I HAVE LEARNED</h4>
-          <p className="text-xl leading-relaxed italic opacity-70">"{learning}"</p>
-        </div>
+    <section className="py-40 flex flex-col items-center justify-center text-center">
+      {/* 1. 核心文案：使用主题色 */}
+      <div className="mb-16">
+        <h2
+          className="text-[32px] font-black tracking-widest mb-4"
+          style={{ color: themeColor }}
+        >
+          THANK YOU FOR VIEWING !
+        </h2>
+        <p
+          className="text-[24px] font-bold"
+          style={{ color: themeColor }}
+        >
+          ご覧いただきありがとうございます。
+        </p>
       </div>
 
-      <div className="h-[600px] relative flex items-center justify-center overflow-hidden mb-20">
-        <div className="absolute inset-0 z-10" style={{ backgroundColor: `${themeColor}CC` }} />
-        <img src={firstViewImage} className="absolute inset-0 w-full h-full object-cover blur-sm" alt="Thank you" />
-        <h2 className="relative z-20 text-white text-6xl font-black italic">THANK YOU FOR WATCHING</h2>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-10 pb-20">
-        <p className="font-bold mb-10 opacity-50 uppercase tracking-tighter">Other Related Cases</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {relatedCases.map((item, i) => (
-            <Link href={item.link} key={i} className="group">
-              <div className="aspect-video overflow-hidden rounded-lg mb-4 border-2 border-transparent transition-all group-hover:border-white shadow-lg">
-                <img src={item.image} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt={item.title} />
-              </div>
-              <p className="font-medium opacity-70 group-hover:opacity-100">{item.title}</p>
-            </Link>
-          ))}
+      {/* 2. BACK TO TOP 按钮 */}
+      <button
+        onClick={scrollToTop}
+        className="group flex flex-col items-center gap-4 transition-transform hover:-translate-y-2"
+      >
+        <span className="text-[14px] font-bold tracking-tighter text-black">
+          BACK TO TOP
+        </span>
+        <div
+          className="w-10 h-10 flex items-center justify-center rounded-full transition-colors"
+          style={{ color: themeColor }}
+        >
+          {/* 使用简单的 SVG 向上箭头 */}
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 4l-8 8h6v8h4v-8h6l-8-8z" />
+          </svg>
         </div>
-      </div>
+      </button>
     </section>
   );
 }
