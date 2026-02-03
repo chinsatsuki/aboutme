@@ -32,24 +32,13 @@ export default function CaseStudyTemplate({ data }: { data: CaseData }) {
         <HeroSection data={data} />
       </div>
 
-      {/* 原型展示（逻辑简单可保留在此，或单独拆分） */}
-      {data.prototypeUrl && (
-        <section id="prototype" className="relative py-20 bg-white/30 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto text-center relative z-10">
-            <h3 className="text-2xl font-bold mb-10" style={{ color: themeColor }}>INTERACTIVE PROTOTYPE</h3>
-            <div className="aspect-video w-full rounded-xl overflow-hidden">
-              <iframe src={data.prototypeUrl} className="w-full h-full border-none" allowFullScreen />
-            </div>
-          </div>
-        </section>
-      )}
 
       <div id="analysis">
         <AnalysisSection data={data} />
       </div>
 
       <div id="process">
-        <ProcessSection steps={data.steps} themeColor={themeColor} learningData={data.learningData} />
+        <ProcessSection steps={data.steps} themeColor={themeColor} learningData={data.learningData} figmaUrl={data.prototypeUrl} />
       </div>
       {/* 插入推荐部分 */}
       <div id="other-cases">

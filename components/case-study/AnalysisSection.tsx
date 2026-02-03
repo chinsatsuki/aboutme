@@ -15,41 +15,59 @@ export default function AnalysisSection({ data }: { data: CaseData }) {
         {/* --- PRODUCT 板块 --- */}
         <div>
           <SectionHeading en="PRODUCT" jp="プロダクト" />
-          <div className="flex flex-col gap-8">
-            <DetailItem
-              title={`WHAT is ${titleEn || 'APP'}?`}
-              jp={`${title}って何`}
-              color={themeColor}
-              content={analysis.product}
-            />
-            {analysis.role && <DetailItem title="MY ROLE" jp="私の役割" color={themeColor} content={analysis.role} />}
-            {analysis.timeline && <DetailItem title="TIMELINE" jp="タイムライン" color={themeColor} content={analysis.timeline} />}
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            <div className="flex-1 flex flex-col gap-8 w-full">
+              <DetailItem
+                title={`WHAT is ${titleEn || 'APP'}?`}
+                jp={`${title}って何`}
+                color={themeColor}
+                content={analysis.product || ""}
+              />
+              {analysis.role && <DetailItem title="MY ROLE" jp="私の役割" color={themeColor} content={analysis.role} />}
+              {analysis.timeline && <DetailItem title="TIMELINE" jp="タイムライン" color={themeColor} content={analysis.timeline} />}
 
-            {/* TOOL 渲染 */}
-            <div>
-              <h4 className="text-[16px] font-bold uppercase tracking-[0.2em] mb-4" style={{ color: themeColor }}>
-                TOOL <span className="opacity-60">|</span> <span>ツール</span>
-              </h4>
-              <div className="flex flex-wrap gap-4">
-                {analysis.tools.split(',').map((tool) => (
-                  <ToolIcon key={tool} name={tool.trim()} />
-                ))}
+              {/* TOOL 渲染 */}
+              <div>
+                <h4 className="text-[16px] font-bold uppercase tracking-[0.2em] mb-4" style={{ color: themeColor }}>
+                  TOOL <span className="opacity-60">|</span> <span>ツール</span>
+                </h4>
+                <div className="flex flex-wrap gap-4">
+                  {analysis.tools.split(',').map((tool) => (
+                    <ToolIcon key={tool} name={tool.trim()} />
+                  ))}
+                </div>
               </div>
             </div>
+
+            {/* 右侧：图片展示 (占据约 40% 宽度) */}
+            {data.firstViewImage && (
+              <div className="flex-1 w-full max-w-[450px]">
+                <img
+                  src={data.firstViewImage}
+                  alt="Product Screenshot"
+                  className="max-w-[400px] h-auto object-cover"
+                />
+              </div>
+            )}
+
           </div>
         </div>
 
         {/* --- PROBLEM 板块 --- */}
-        <div>
-          <SectionHeading en="PROBLEM" jp="課題" />
-          <SectionDescription>{analysis.problem}</SectionDescription>
-        </div>
+        {analysis.problem && (
+          <div>
+            <SectionHeading en="PROBLEM" jp="課題" />
+            <SectionDescription>{analysis.problem}</SectionDescription>
+          </div>
+        )}
 
         {/* --- GOAL 板块 --- */}
-        <div>
-          <SectionHeading en="GOAL" jp="目標" />
-          <SectionDescription>{analysis.goal}</SectionDescription>
-        </div>
+        {analysis.goal && (
+          <div>
+            <SectionHeading en="GOAL" jp="目標" />
+            <SectionDescription>{analysis.goal}</SectionDescription>
+          </div>
+        )}
 
       </div>
     </section>

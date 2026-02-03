@@ -3,9 +3,10 @@ import React from 'react';
 import { DesignStep } from "@/types/case";
 import { SectionHeading, ProcessStepHeader, ProcessContentCard, SectionDescription } from "@/components/ui/CaseStudyUI";
 
-export default function ProcessSection({ steps, themeColor, learningData }: {
+export default function ProcessSection({ steps, themeColor, learningData, figmaUrl }: {
   steps: DesignStep[], themeColor: string,
-  learningData?: { title: string; desc: string }[]
+  learningData?: { title: string; desc: string }[],
+  figmaUrl?: string
 }) {
 
   // 辅助函数：处理 description 可能是 ReactNode 或 字符串数组的情况
@@ -40,9 +41,9 @@ export default function ProcessSection({ steps, themeColor, learningData }: {
             return (
               <div key={index} className="flex flex-col">
                 <ProcessStepHeader
-                  number={step.number}
-                  title={step.title}
-                  jpTitle={step.jpTitle || "内容"}
+                  number={step.number || ""}
+                  title={step.title || ""}
+                  jpTitle={step.jpTitle || ""}
                   points={step.points || []}
                   themeColor={themeColor}
                   isReversed={isReversed}
@@ -86,6 +87,21 @@ export default function ProcessSection({ steps, themeColor, learningData }: {
           })}
         </div>
 
+        {/* ：Figma 演示按钮 */}
+        {figmaUrl && (
+          <div className="mt-20 flex justify-center">
+            <a
+              href={figmaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-4 rounded-full font-bold text-white transition-all duration-300 hover:brightness-125 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)] "
+              style={{ backgroundColor: themeColor }}
+            >
+              プロトタイプ or ウェブサイト
+            </a>
+          </div>
+        )}
+
         {/* 2. 新增：WHAT I HAVE LEARNED 部分 */}
         <div id="thanks">
           {learningData && learningData.length > 0 && (
@@ -112,6 +128,7 @@ export default function ProcessSection({ steps, themeColor, learningData }: {
             </div>
           )}
         </div>
+
 
       </div>
     </section>

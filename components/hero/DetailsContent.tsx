@@ -7,9 +7,9 @@ export const DetailsContent = () => {
       side: "SIDE A",
       title: "Web Design&Coding",
       items: [
-        { name: "1. サロンサイトのリニューアル", id: "salon" },
-        { name: "2. リクルートサイト", id: "recruit" },
-        { name: "3. フランチャイズLP", id: "franchise" }
+        { name: "1. サロンサイトのリニューアル", id: "salonsite" },
+        { name: "2. リクルートサイト", id: "recruit", link: "https://www.creative-caravan.jp/recruit-page/" },
+        { name: "3. フランチャイズLP", id: "franchise", link: "https://fc.creative-caravan.jp/" }
       ]
     },
     {
@@ -18,19 +18,18 @@ export const DetailsContent = () => {
       items: [
         { name: "1. WASHOKU(レストラン予約ミニプログラム)", id: "washoku" },
         { name: "2. LGBT組織アプリ", id: "lgbt" },
-        { name: "3. 工場ウェブサイト", id: "sunhope" },
-        { name: "4. 水族館アプリ", id: "marineworld" } // 💡 这里对应 [id] 路由
+        { name: "3. 工場ウェブサイト", id: "soohome" },
+        { name: "4. 水族館アプリ", id: "marineworld" }
       ]
     },
     {
       side: "SIDE C",
       title: "Other Design Works",
       items: [
-        { name: "1. クラウドファンディングデザイン", id: "crowdfunding" },
+        { name: "1. クラウドファンディングデザイン", id: "crowd" },
         { name: "2. ブックデザイン", id: "book" },
-        { name: "3. 会社パンフレット", id: "pamphlet" },
-        { name: "4. コミュニケーションデザイン", id: "communication" },
-        { name: "5. PROJECT HEI", id: "projecthei" }
+        { name: "3. 会社パンフレット", id: "brochure" },
+        { name: "4. グラフィックデザイン", id: "graphic" },
       ]
     },
   ];

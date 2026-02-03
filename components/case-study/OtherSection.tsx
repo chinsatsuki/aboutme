@@ -3,13 +3,18 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { CaseData } from "@/types/case";
 
-// 这里的 ALL_CASES_LIST 建议放在单独的常量文件，这里仅作演示
 const ALL_CASES_LIST = [
-  { id: 'b01', group: 'b', title: 'WASHOKU', image: '/images/casecover/washoku.jpg', link: '/case/washoku' },
-  { id: 'b02', group: 'b', title: 'LGBT ORGANIZATION', image: '/images/casecover/lgbt.jpg', link: '/case/lgbt' },
-  { id: 'b03', group: 'b', title: 'FACTORY WEBSITE', image: '/images/casecover/website.jpg', link: '/case/sunhope' },
-  { id: 'b04', group: 'b', title: 'THE AQUARIUM APP', image: '/images/casecover/marineworld.jpg', link: '/case/marineworld' },
-  // ... 其他组 A 和 C 的数据
+  { id: 'a01', group: 'a', title: 'サロンサイト ', image: '/images/casecover/salon.png', link: '/cases/salonsite' },
+  { id: 'a02', group: 'a', title: 'リクルートサイト', image: '/images/casecover/recruit.jpg', link: 'https://www.creative-caravan.jp/recruit-page/' },
+  { id: 'a03', group: 'a', title: 'フランチャイズLP', image: '/images/casecover/franchise.jpg', link: 'https://fc.creative-caravan.jp/' },
+  { id: 'b01', group: 'b', title: 'レストラン予約ミニアプリ', image: '/images/casecover/washoku.png', link: '/cases/washoku' },
+  { id: 'b02', group: 'b', title: 'LGBT支援アプリ', image: '/images/casecover/lgbt.jpg', link: '/cases/lgbt' },
+  { id: 'b03', group: 'b', title: '工場ウェブサイト', image: '/images/casecover/soohome.jpg', link: '/cases/soohome' },
+  { id: 'b04', group: 'b', title: '水族館アプリ', image: '/images/casecover/marineworld.jpg', link: '/cases/marineworld' },
+  { id: 'c01', group: 'c', title: 'ビジネスデザイン', image: '/images/casecover/crowdfunding.jpg', link: '/cases/crowd' },
+  { id: 'c02', group: 'c', title: 'グラフィックデザイン', image: '/images/casecover/book.jpg', link: '/cases/book' },
+  { id: 'c03', group: 'c', title: 'パンフレットデザイン', image: '/images/casecover/brochure.png', link: '/cases/brochure' },
+  { id: 'c04', group: 'c', title: 'グラフィックデザイン', image: '/images/casecover/graphic.jpg', link: '/cases/graphic' },
 ];
 
 export default function OtherSection({ currentId, group, themeColor }: {
@@ -46,16 +51,24 @@ export default function OtherSection({ currentId, group, themeColor }: {
                 </div>
 
                 {/* 2. 上层：封面外壳 (Padding 50 + 白色背景) */}
-                <div className="absolute inset-0 z-10 p-[50px] bg-white transition-all duration-500 shadow-lg group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center justify-center">
+                <div
+                  className="absolute inset-0 z-10 p-[50px] transition-all duration-500 shadow-lg group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center justify-center rounded-sm"
+                  style={{
+                    backgroundImage: "url('/images/bg-texture.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
+                  }}
+                >
                   <div className="w-full h-full shadow-inner border border-black/5 overflow-hidden">
                     <img src={item.image} className="w-full h-full object-cover" alt={item.title} />
                   </div>
                 </div>
+
               </div>
 
               <div className="mt-8 text-white">
                 <p className="text-[12px] font-bold opacity-60 mb-1">{item.id.toUpperCase()}</p>
-                <h4 className="text-[20px] font-black italic uppercase leading-none">{item.title}</h4>
+                <h4 className="text-[20px] font-black uppercase leading-none">{item.title}</h4>
               </div>
             </Link>
           ))}

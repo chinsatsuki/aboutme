@@ -58,7 +58,9 @@ export const ProcessStepHeader = ({
       style={{ color: themeColor }}
     >
       <span className="uppercase tracking-tight">{title}</span>
-      <span className="text-[28px] opacity-60 font-medium">| {jpTitle}</span>
+      {jpTitle && (
+        <span className="text-[28px] opacity-60 font-medium">| {jpTitle}</span>
+      )}
     </div>
 
     {/* 第三部分：数字 01 和 分点文字 (水平 div，向上对齐) */}

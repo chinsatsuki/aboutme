@@ -60,12 +60,12 @@ export default function ComponentsDemoPage() {
           <Input type="text" placeholder="Disabled input" disabled />
         </div>
         <div className="grid w-full max-w-sm items-center gap-1.5">
-           <Input 
-             placeholder="Try typing for debounce demo..." 
-             value={inputValue}
-             onChange={(e) => setInputValue(e.target.value)}
-           />
-           <p className="text-sm text-gray-500">Debounced value: {debouncedValue}</p>
+          <Input
+            placeholder="Try typing for debounce demo..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <p className="text-sm text-gray-500">Debounced value: {debouncedValue}</p>
         </div>
       </section>
 
@@ -105,9 +105,9 @@ export default function ComponentsDemoPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex items-center gap-4">
-              <Input 
-                value={typeof storedValue === "string" ? storedValue : ""} 
-                onChange={(e) => setStoredValue(e.target.value)} 
+              <Input
+                value={typeof storedValue === "string" ? storedValue : ""}
+                onChange={(e) => setStoredValue(e.target.value)}
                 className="max-w-sm"
               />
               <span className="text-sm text-gray-500">Current Value: {typeof storedValue === "string" ? storedValue : JSON.stringify(storedValue)}</span>

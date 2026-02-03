@@ -1,15 +1,16 @@
-import CaseStudyTemplate from "@/components/CaseStudyTemplate";
-import { allCasesData } from "@/lib/data"; 
+// app/cases/[id]/page.tsx
 import { notFound } from "next/navigation";
+import CaseStudyTemplate from "@/components/CaseStudyTemplate";
+// 指向你新建立的整合文件，确保只保留这一个 allCasesData 导入
+import { allCasesData } from "@/lib/data/index";
 
-// 💡 必须使用 async，因为 Next.js 15 的 params 是一个 Promise
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
   const id = resolvedParams.id;
 
+  // 根据 URL 的 id（如 marineworld）从新数据源匹配数据
   const data = allCasesData[id];
 
-  // 如果 data.ts 里找不到对应的 key，就返回 404
   if (!data) {
     return notFound();
   }

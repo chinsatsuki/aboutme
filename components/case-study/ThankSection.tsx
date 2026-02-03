@@ -40,8 +40,8 @@ export default function ThankSection({ data }: { data: CaseData }) {
         >
           {/* 使用简单的 SVG 向上箭头 */}
           <svg
-            width="32"
-            height="32"
+            width="100"
+            height="100"
             viewBox="0 0 24 24"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
