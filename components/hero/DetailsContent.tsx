@@ -8,8 +8,8 @@ export const DetailsContent = () => {
       title: "Web Design&Coding",
       items: [
         { name: "1. サロンサイトのリニューアル", id: "salonsite" },
-        { name: "2. リクルートサイト", id: "recruit", link: "https://www.creative-caravan.jp/recruit-page/" },
-        { name: "3. フランチャイズLP", id: "franchise", link: "https://fc.creative-caravan.jp/" }
+        { name: "2. リクルートサイト", link: "https://www.creative-caravan.jp/recruit-page/" },
+        { name: "3. フランチャイズLP", link: "https://fc.creative-caravan.jp/" }
       ]
     },
     {
