@@ -34,28 +34,38 @@ export const DetailsContent = () => {
     },
   ];
 
+  const linkStyle = "text-[var(--secondary)] hover:text-[var(--brand-orange)] transition-colors duration-300 cursor-pointer text-[13px] font-medium leading-tight block";
   return (
     <div className="h-full flex justify-center py-12 px-8">
       <div className="flex flex-col justify-between h-full w-fit">
         {sections.map((sec, index) => (
           <div key={index} className="flex gap-6">
-            {/* 橘色侧边栏标签 */}
             <div className="text-[var(--brand-orange)] font-bold [writing-mode:vertical-lr] rotate-0 text-sm tracking-widest pt-7">
               {sec.side}
             </div>
-            {/* 内容区 */}
             <div>
               <h3 className="text-[var(--brand-green)] font-bold mb-2 text-sm">{sec.title}</h3>
               <ul className="space-y-1">
                 {sec.items.map((item, i) => (
                   <li key={i}>
-                    {/* 2. 使用 Link 组件包裹，将原本的文字变成可跳转的链接 */}
-                    <Link
-                      href={`/cases/${item.id}`}
-                      className="text-[var(--secondary)] hover:text-[var(--brand-orange)] transition-colors duration-300 cursor-pointer text-[13px] font-medium leading-tight block"
-                    >
-                      {item.name}
-                    </Link>
+                    {/* 💡 逻辑判断：存在 link 时使用 a 标签，否则使用 Link 组件 */}
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkStyle}
+                      >
+                        {item.name} (外部)
+                      </a>
+                    ) : (
+                      <Link
+                        href={`/cases/${item.id}`}
+                        className={linkStyle}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
