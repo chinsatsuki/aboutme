@@ -12,7 +12,7 @@ const ALL_CASES_LIST = [
   { id: 'b03', group: 'b', title: '工場ウェブサイト', image: '/images/casecover/soohome.jpg', link: '/cases/soohome' },
   { id: 'b04', group: 'b', title: '水族館アプリ', image: '/images/casecover/marineworld.jpg', link: '/cases/marineworld' },
   { id: 'c01', group: 'c', title: 'ビジネスデザイン', image: '/images/casecover/crowdfunding.jpg', link: '/cases/crowd' },
-  { id: 'c02', group: 'c', title: 'グラフィックデザイン', image: '/images/casecover/book.jpg', link: '/cases/book' },
+  { id: 'c02', group: 'c', title: 'ブックデザイン', image: '/images/casecover/book.png', link: '/cases/book' },
   { id: 'c03', group: 'c', title: 'パンフレットデザイン', image: '/images/casecover/brochure.png', link: '/cases/brochure' },
   { id: 'c04', group: 'c', title: 'グラフィックデザイン', image: '/images/casecover/graphic.jpg', link: '/cases/graphic' },
 ];
