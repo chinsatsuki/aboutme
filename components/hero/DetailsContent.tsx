@@ -9,7 +9,8 @@ export const DetailsContent = () => {
       items: [
         { name: "1. サロンサイトのリニューアル", id: "salonsite" },
         { name: "2. リクルートサイト", link: "https://www.creative-caravan.jp/recruit-page/" },
-        { name: "3. フランチャイズLP", link: "https://fc.creative-caravan.jp/" }
+        { name: "3. フランチャイズLP", link: "https://fc.creative-caravan.jp/" },
+        { name: "4. テンプレートのデモサイトLP", link: "https://www.design-demo.makeit-ltd.jp/" }
       ]
     },
     {
