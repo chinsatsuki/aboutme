@@ -50,7 +50,7 @@ export default function HeroSection() {
   <div className="flex flex-col items-end pr-6 w-full text-white space-y-1 text-[12px] font-medium leading-relaxed opacity-70">
     <p>名前　陳彩月</p>
     <p>(CHIN SATSUKI)</p>
-    <p>所在地　東京</p>
+    <p>所在地　神奈川県</p>
     <p>出身地　中国</p>
     <p>九州大学MBA</p>
     <p className="pt-1">Tel　81 09095660863</p>
