@@ -3,7 +3,7 @@ import { motion, Variants } from "framer-motion";
 
 const elements = [
   { src: "/images/marine/fish.svg", side: "left" },
-  { src: "/images/marine/jellyfish.svg", side: "right" },
+  { src: "/images/marine/Jellyfish.svg", side: "right" },
   { src: "/images/marine/bubble.svg", side: "left" },
   { src: "/images/marine/Aplysina.svg", side: "right" },
   { src: "/images/marine/Dolphin.svg", side: "left" },
