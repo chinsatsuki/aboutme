@@ -35,7 +35,7 @@ export const DetailsContent = () => {
     },
   ];
 
-  const linkStyle = "text-[var(--accent)] hover:text-[var(--brand-orange)] transition-colors duration-300 cursor-pointer text-[13px] font-medium leading-tight block";
+  const linkStyle = "text-[var(--accent-foreground)] hover:text-[var(--brand-orange)] transition-colors duration-300 cursor-pointer text-[13px] font-medium leading-tight block";
   return (
     <div className="h-full flex justify-center py-12 px-8">
       <div className="flex flex-col justify-between h-full w-fit">
